@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>main</title>
+</head>
+<body>
+
+	<div align="center">
+	
+		<img th:src="@{/img/member.PNG}"/>
+		
+		<div th:if="${session.memberId == null}">
+			<p><a th:href="@{/member/register}">회원가입</a></p>
+			<p><a th:href="@{/member/login}">로그인</a></p>
+		</div>
+		<div th:unless="${session.memberId == null}">
+			<p><a th:href="@{/member/update}">수정하기</a></p>	
+			<p><a th:href="@{/member/delete}">탈퇴하기</a></p>	
+			<p><a th:href="@{/member/logout}">로그아웃</a></p>
+		</div>
+		
+	</div>
+	
+</body>
+</html>
